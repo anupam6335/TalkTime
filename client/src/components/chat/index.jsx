@@ -4,7 +4,7 @@ import {
   MultiChatSocket,
   MultiChatWindow,
 } from "react-chat-engine-advanced";
-
+import Header from "@/components/customHeader";
 const Chat = () => {
 
   const chatProps = useMultiChatLogic(
@@ -15,8 +15,12 @@ const Chat = () => {
 
   return (
     <div style={{ flexBasis: "100%" }}>
-     <MultiChatSocket {...chatProps} />
-     renderChatHeader={(chat) => <Header chat={chat} />}
+      <MultiChatSocket {...chatProps} />
+      <MultiChatWindow
+        {...chatProps}
+        style={{ height: "100vh" }}
+        renderChatHeader={(chat) => <Header chat={chat} />}
+      />
     </div>
   );
 };
